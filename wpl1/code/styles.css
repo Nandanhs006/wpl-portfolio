@@ -160,6 +160,26 @@ input,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(
   }
 }
 
+  /* center-screen portfolio title */
+  #center-title{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:9998;
+    font-size:clamp(28px,6vw,64px);
+    font-weight:800;
+    color:var(--text);
+    pointer-events:none;
+    text-align:center;
+    letter-spacing:0.6px;
+    opacity:0.95;
+  }
+
+  @media (max-width:420px){
+    #center-title{font-size:24px}
+  }
+
 /* Sidebar collapse/open controls */
 .collapse-toggle{
   position:absolute;right:8px;top:12px;background:transparent;border:0;padding:.25rem .5rem;border-radius:6px;font-size:1rem;cursor:pointer;color:var(--muted);
