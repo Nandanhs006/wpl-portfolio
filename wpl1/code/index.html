@@ -1,1 +1,159 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Portfolio — Your Name</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+			<a class="logo" href="#">YourName</a>
+		</div>
+	</header>
+
+	<!-- Left sidebar with menu -->
+	<aside id="sidebar" class="sidebar" aria-label="Main menu">
+		<div class="sidebar-inner container">
+			<div class="brand">
+				<a class="logo" href="#">YourName</a>
+			</div>
+				<!-- collapse button (desktop) -->
+				<button id="sidebar-collapse" class="sidebar-collapse" aria-label="Collapse sidebar">◀</button>
+			<nav id="nav" class="site-nav">
+				<a href="#profile">Profile</a>
+				<a href="#skills">Skills</a>
+				<a href="#education">Education</a>
+				<a href="#projects">Projects</a>
+				<a href="#achievements">Achievements</a>
+				<a href="#certifications">Certifications</a>
+				<a href="#contact">Contact</a>
+				<a class="btn resume" href="assets/resume.pdf" download>Download Resume</a>
+			</nav>
+		</div>
+	</aside>
+
+	<main class="main-content">
+		<section class="hero">
+			<div class="container">
+				<h1>Hello — I'm Nandan H S</h1>
+				<p>3rd-year Computer Science and Engineering student focused on web development, algorithms, and AI.</p>
+				<p><a class="btn" href="#projects">View Projects</a></p>
+			</div>
+		</section>
+
+		<section id="profile" class="container profile">
+			<h2>Student Profile</h2>
+			<div class="profile-grid">
+				<div class="profile-photo">
+					<img src="assets/profile.jpg" alt="Your Name" />
+				</div>
+				<div class="profile-info">
+						<p><strong>Name:</strong> Nandan H S</p>
+						<p><strong>Program:</strong> Computer Science and Engineering</p>
+						<p><strong>Year:</strong> 3rd Year</p>
+						<p>I'm a 3rd-year CSE student interested in building web applications, learning machine
+	                learning, and solving algorithmic challenges. I enjoy hands-on projects and open-source collaboration.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="skills" class="container skills">
+			<h2>Skills</h2>
+			<p>Technologies and tools I use:</p>
+			<div class="skill-badges">
+				<span class="skill">HTML</span>
+				<span class="skill">CSS</span>
+				<span class="skill">JavaScript</span>
+				<span class="skill">React</span>
+				<span class="skill">Node.js</span>
+				<span class="skill">Git</span>
+			</div>
+		</section>
+
+		<section id="education" class="container education">
+			<h2>Education</h2>
+			<ul class="edu-list">
+				<li class="edu-item">
+					<strong>University Name</strong> — Degree, Year
+					<p>Brief details (GPA, relevant coursework).</p>
+				</li>
+			</ul>
+		</section>
+
+		<section id="projects" class="container projects">
+			<h2>Selected Projects</h2>
+			<div class="grid">
+				<article class="card">
+					<img src="assets/project1.jpg" alt="Project 1" />
+					<h3>Project One</h3>
+					<p>Short description of the project.</p>
+					<p><a href="#" class="btn">View</a></p>
+				</article>
+
+				<article class="card">
+					<img src="assets/project2.jpg" alt="Project 2" />
+					<h3>Project Two</h3>
+					<p>Short description of the project.</p>
+					<p><a href="#" class="btn">View</a></p>
+				</article>
+
+				<article class="card">
+					<img src="assets/project3.jpg" alt="Project 3" />
+					<h3>Project Three</h3>
+					<p>Short description of the project.</p>
+					<p><a href="#" class="btn">View</a></p>
+				</article>
+			</div>
+		</section>
+
+		<section id="achievements" class="container achievements">
+			<h2>Achievements</h2>
+			<ul>
+				<li>Achievement one (e.g., competition, award)</li>
+				<li>Achievement two</li>
+			</ul>
+		</section>
+
+		<section id="certifications" class="container certifications">
+			<h2>Certifications</h2>
+			<ul class="cert-list">
+				<li><a href="#">Certificate Name — Issuer (Year)</a></li>
+			</ul>
+		</section>
+
+		<section id="contact" class="container contact">
+			<h2>Contact</h2>
+			<form id="contact-form">
+				<label>
+					Name
+					<input type="text" name="name" required />
+				</label>
+				<label>
+					Email
+					<input type="email" name="email" required />
+				</label>
+				<label>
+					Message
+					<textarea name="message" rows="5" required></textarea>
+				</label>
+				<button type="submit" class="btn">Send</button>
+				<p id="form-msg" class="form-msg" aria-live="polite"></p>
+			</form>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>&copy; <span id="year"></span> Nandan H S. Built with HTML, CSS & JS.</p>
+		</div>
+	</footer>
+
+	<script src="script.js" defer></script>
+
+	<!-- subtle gliding orb cursor (desktop only) -->
+	<div id="cursorGlide" class="cursor-glide" aria-hidden="true"></div>
+</body>
+</html>
