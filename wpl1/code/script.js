@@ -1,45 +1,11 @@
 // Small UI behaviors for the portfolio
 document.addEventListener('DOMContentLoaded',function(){
-	// Nav toggle for small screens (sidebar) and collapsed-state handling
+	// Nav toggle for small screens (sidebar)
 	const navToggle = document.getElementById('nav-toggle');
 	const sidebar = document.getElementById('sidebar');
-	const sidebarCollapseBtn = document.getElementById('sidebar-collapse');
-
-	function setCollapsedState(collapsed){
-		if(!sidebar) return;
-		if(collapsed){
-			sidebar.classList.add('collapsed');
-			document.body.classList.add('sidebar-collapsed');
-		} else {
-			sidebar.classList.remove('collapsed');
-			document.body.classList.remove('sidebar-collapsed');
-		}
-		try{ localStorage.setItem('sidebarCollapsed', collapsed ? '1' : '0'); }catch(e){}
-	}
-
-	// initialize from storage
-	try{
-		const saved = localStorage.getItem('sidebarCollapsed');
-		if(saved === '1') setCollapsedState(true);
-	} catch(e){}
-
-	// nav toggle: open/close sidebar for mobile — also ensure collapsed state is removed when opening
 	navToggle && sidebar && navToggle.addEventListener('click', ()=>{
-		// if currently collapsed, un-collapse so open action shows it
-		if(sidebar.classList.contains('collapsed')) setCollapsedState(false);
 		sidebar.classList.toggle('open');
 	});
-
-	// collapse button toggles collapsed state (desktop behavior)
-	if(sidebarCollapseBtn && sidebar){
-		sidebarCollapseBtn.addEventListener('click', ()=>{
-			const collapsed = sidebar.classList.toggle('collapsed');
-			document.body.classList.toggle('sidebar-collapsed', collapsed);
-			// ensure mobile 'open' state is removed when collapsing
-			sidebar.classList.remove('open');
-			try{ localStorage.setItem('sidebarCollapsed', collapsed ? '1' : '0'); }catch(e){}
-		});
-	}
 
 	// Smooth scroll for internal links
 	document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -115,4 +81,30 @@ document.addEventListener('DOMContentLoaded',function(){
 			}
 		}
 	}catch(err){ console.warn('Glide cursor not available', err); }
+
+		// Sidebar collapse / persist state
+		try{
+			const collapseToggle = document.getElementById('collapse-toggle');
+			const openHandle = document.getElementById('sidebar-open-handle');
+			const bodyEl = document.body;
+			const KEY = 'sidebarCollapsed';
+
+			// restore state
+			if(localStorage.getItem(KEY) === '1'){
+				bodyEl.classList.add('sidebar-collapsed');
+				if(collapseToggle) collapseToggle.setAttribute('aria-expanded','false');
+			}
+
+			collapseToggle && collapseToggle.addEventListener('click', ()=>{
+				const collapsed = bodyEl.classList.toggle('sidebar-collapsed');
+				collapseToggle.setAttribute('aria-expanded', (!collapsed).toString());
+				localStorage.setItem(KEY, collapsed ? '1' : '0');
+			});
+
+			openHandle && openHandle.addEventListener('click', ()=>{
+				bodyEl.classList.remove('sidebar-collapsed');
+				if(collapseToggle) collapseToggle.setAttribute('aria-expanded','true');
+				localStorage.setItem(KEY,'0');
+			});
+		}catch(e){console.warn('Sidebar collapse unavailable', e)}
 });

@@ -17,11 +17,10 @@
 	<!-- Left sidebar with menu -->
 	<aside id="sidebar" class="sidebar" aria-label="Main menu">
 		<div class="sidebar-inner container">
+			<button id="collapse-toggle" class="collapse-toggle" aria-label="Collapse sidebar" aria-expanded="true">«</button>
 			<div class="brand">
 				<a class="logo" href="#">YourName</a>
 			</div>
-				<!-- collapse button (desktop) -->
-				<button id="sidebar-collapse" class="sidebar-collapse" aria-label="Collapse sidebar">◀</button>
 			<nav id="nav" class="site-nav">
 				<a href="#profile">Profile</a>
 				<a href="#skills">Skills</a>
@@ -34,6 +33,8 @@
 			</nav>
 		</div>
 	</aside>
+	<!-- handle shown when sidebar is collapsed to reopen it -->
+	<button id="sidebar-open-handle" class="sidebar-open-handle" aria-label="Open sidebar" hidden>☰</button>
 
 	<main class="main-content">
 		<section class="hero">
@@ -119,9 +120,12 @@
 
 		<section id="certifications" class="container certifications">
 			<h2>Certifications</h2>
-			<ul class="cert-list">
-				<li><a href="#">Certificate Name — Issuer (Year)</a></li>
-			</ul>
+			<div class="cert-grid">
+				<img src="assets/Certificates/IMG-20251127-WA0003.jpg" alt="Certificate 1" />
+				<img src="assets/Certificates/IMG-20251127-WA0007.jpg" alt="Certificate 2" />
+				<img src="assets/Certificates/IMG-20251204-WA0013.jpg" alt="Certificate 3" />
+				<img src="assets/Certificates/IMG-20251205-WA0027.jpg" alt="Certificate 4" />
+			</div>
 		</section>
 
 		<section id="contact" class="container contact">
